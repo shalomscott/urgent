@@ -1,0 +1,39 @@
+
+ListView {
+  height: 100%;
+  width: 100%;
+}
+.list-item {
+  border-bottom-color: gray;
+  border-bottom-width: 2;
+}
+Label {
+  vertical-align: center;
+  font-size: 17;
+  color: black;
+}
+.item-status {
+  font-size: 15;
+  margin-right: 0%;
+  color: red;
+}
+.item-status-container {
+  margin-right: 0%;
+}
+.even {
+    background-color: #a7ceeb;
+}
+.odd {
+    background-color: #b7ceeb;
+}
+.fab-button {
+    height: 70;
+    width: 70; 
+    margin: 15;
+    background-color: #ff4081; 
+    vertical-align: bottom; 
+}
+.fab-container {
+  margin-top: 85%;
+  margin-left: 80%;
+}

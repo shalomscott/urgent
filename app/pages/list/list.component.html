@@ -1,10 +1,12 @@
+<ActionBar title="Requests to you"></ActionBar>
+
 <AbsoluteLayout>
 
   <ListView [items]="messageList" class="message-list" rowHeight="80">
      <ng-template let-item="item" let-i="index" let-even="even" let-odd="odd">
             <StackLayout [class.even]="even" [class.odd]="odd">
                 <Label [text]='item.email'></Label>
-                <Label [text]='getStatusName(item.status)' class="item-status"></Label>
+                <Label class="itemStatus" [text]='getStatusName(item.status)' class="item-status"></Label>
             </StackLayout>
         </ng-template>
   </ListView>

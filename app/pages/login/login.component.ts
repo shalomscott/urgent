@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.page.actionBarHidden = true;
-    this.page.backgroundImage = "res://bg_login";
+    //  this.page.actionBarHidden = true;
+    //  this.page.backgroundImage = "res://bg_login";
   }
 
   submit() {
@@ -41,14 +41,14 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.fireAuth.login(this.email, this.password)
-    .then(
+      .then(
       () => this.router.navigate(["/list"]),
       (errorMessage) => alert({
         title: "Error",
         message: errorMessage,
         okButtonText: "ok"
       })
-    );
+      );
   }
 
   signUp() {

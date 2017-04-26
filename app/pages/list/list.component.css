@@ -21,19 +21,23 @@ Label {
   margin-right: 0%;
 }
 .even {
-    background-color: #a7ceeb;
+    background-color: #d9d9d9;
 }
 .odd {
-    background-color: #b7ceeb;
+    background-color: #f2f2f2;
 }
 .fab-button {
     height: 70;
     width: 70; 
     margin: 15;
-    background-color: #ff4081; 
+    background-color: #d9d9d9; 
     vertical-align: bottom; 
 }
 .fab-container {
   margin-top: 85%;
   margin-left: 80%;
+}
+
+.itemStatus {
+    text-align: center;
 }

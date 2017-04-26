@@ -8,7 +8,7 @@
 android {  
   defaultConfig {  
     generatedDensities = []
-    applicationId = "org.nativescript.groceries" 
+    applicationId = "com.mashovniks.urgent" 
     
     //override supported platforms
     // ndk {
@@ -19,5 +19,9 @@ android {
   }  
   aaptOptions {  
     additionalParameters "--no-version-vectors"  
-  }  
-} 
+  }
+}
+
+project.ext {
+    googlePlayServicesVersion = "10.2.+"
+}

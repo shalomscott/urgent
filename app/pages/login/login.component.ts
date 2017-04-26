@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 
 import { Router } from "@angular/router";
 
-import { User } from "../../shared/firebase/user";
+import { User } from "../../shared/firebase/firebase-types";
 import { FireAuth } from "../../shared/firebase/fire-auth.service";
 
 import { Page } from "ui/page";

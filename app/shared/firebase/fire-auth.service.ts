@@ -1,28 +1,23 @@
 import { Injectable } from "@angular/core";
+import { User } from "./firebase-types"
 import firebase = require("nativescript-plugin-firebase");
-
-import { User } from "./user";
-
-firebase.init()
-.then(instance =>
-{
-	console.log("firebase instance: " + JSON.stringify(instance));
-})
-.catch(error => 
-{
-	console.log("firebase.init error: " + error);
-});
 
 @Injectable()
 export class FireAuth
 {
-	signUp(user: User)
+	signUp(user: User): Promise<string>
 	{
-		return firebase.createUser({ email: user.email, password: user.password })
-		.then(result => console.log("Created new user:  " + JSON.stringify(result)));
+		return firebase.createUser({
+			email: user.email,
+			password: user.password 
+		})
+		.then(result => {
+			console.log("Created new user: " + JSON.stringify(result));
+			return result.key;
+		});
 	}
 
-	login(user: User)
+	login(user: User): Promise<firebase.User>
 	{
 		console.log('Got user ' + JSON.stringify(user))
 		return firebase.login({ 
@@ -30,12 +25,18 @@ export class FireAuth
 			email: user.email,
 			password: user.password
 		})
-		.then(result => console.log("User login:  " + JSON.stringify(result)));
+		.then(result => {
+			console.log("User login: " + JSON.stringify(result));
+			return result;
+		});
 	}
 
-	logout()
+	logout(): Promise<any>
 	{
 		return firebase.logout()
-		.then(result => console.log("User logout:  " + JSON.stringify(result)));
+		.then(result => {
+			console.log("User logout: " + JSON.stringify(result));
+			return result;
+		});
 	}
 }

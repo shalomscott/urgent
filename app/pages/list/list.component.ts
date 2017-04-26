@@ -1,8 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 
-import { Message } from "../../shared/message/message";
-import { MessageListService } from "../../shared/message/message-list.service";
-import { Status } from "../../shared/message/message-status";
+import { Message, MessageStatus } from "../../shared/types";
+import { MessageListService } from "../../shared/message-list.service";
 import { Router } from "@angular/router";
 
 import { TextField } from "ui/text-field";
@@ -27,7 +26,7 @@ export class ListComponent implements OnInit {
 }
 
 getStatusName(status) {
-  return Status[status];
+  return MessageStatus[status];
 }
 
   ngOnInit() {
@@ -39,9 +38,9 @@ getStatusName(status) {
     //   });
 
     var loadedMessages = [
-      new Message("1", "my name is itai", new Date(), Status.PENDING, "itai.schwed@gmail.com"),
-      new Message("2", "my name is shalom", new Date(), Status.PENDING, "itai.schwed@gmail.com"),
-      new Message("3", "my name is nick", new Date(), Status.PENDING, "itai.schwed@gmail.com")
+      new Message("itai.schwed@gmail.com", "my name is shalom", MessageStatus.PENDING, null),
+      new Message("itai.schwed@gmail.com", "my name is shalom", MessageStatus.PENDING, null),
+      new Message("itai.schwed@gmail.com", "my name is shalom", MessageStatus.PENDING, null)
     ];
     
     loadedMessages.forEach((messageObject) => {

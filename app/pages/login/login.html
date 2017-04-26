@@ -7,13 +7,13 @@
 
     <TextField hint="Email Address" 
                keyboardType="email" 
-               [(ngModel)]="user.email"
+               [(ngModel)]="email"
                autocorrect="false" 
                autocapitalizationType="none">
     </TextField>
     <TextField hint="Password" 
                secure="true"
-               [(ngModel)]="user.password">
+               [(ngModel)]="password">
     </TextField>
 
     <Button [text]="isLoggingIn ? 'SIGN IN' : 'SIGN UP'" 

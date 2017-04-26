@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Message } from "../message/message"
-import { Status } from "../message/message-status"
+import { Message, MessageStatus } from "../types"
 import firebase = require("nativescript-plugin-firebase");
 
 @Injectable()
@@ -8,6 +7,7 @@ export class FireMessages
 {
 	add(message: Message): Promise<string>
 	{
+		message.timestamp = firebase.ServerValue.TIMESTAMP;
 		return firebase.push('/messages', message)
 		.then(result => result.key);
 	}
@@ -21,7 +21,7 @@ export class FireMessages
 				singleEvent: false,
 				orderBy: {
 					type: firebase.QueryOrderByType.CHILD,
-					value: 'date'
+					value: 'timestamp'
 				}
 			});
 	}
@@ -31,11 +31,11 @@ export class FireMessages
 		// Send message by id
 	}
 
-	addOnStatusChangeListener(id: number, listener: (status: Status) => void)
+	addOnStatusChangeListener(id: number, listener: (status: MessageStatus) => void)
 	{
 	}
 
-	updateStatus(id: number, status: Status)
+	updateStatus(id: number, status: MessageStatus)
 	{
 	}
 }

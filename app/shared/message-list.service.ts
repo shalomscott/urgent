@@ -3,8 +3,8 @@ import { Http, Headers } from "@angular/http";
 import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/map";
 
-import { Config } from "../config";
-import { Message } from "./message";
+import { Config } from "./config";
+import { Message } from "./types";
 
 @Injectable()
 export class MessageListService {

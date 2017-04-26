@@ -1,29 +1,24 @@
 import { Injectable } from "@angular/core";
-import { User } from "./firebase-types"
 import firebase = require("nativescript-plugin-firebase");
 
 @Injectable()
 export class FireAuth
 {
-	signUp(user: User): Promise<string>
+	signUp(email: string, password: string): Promise<string>
 	{
-		return firebase.createUser({
-			email: user.email,
-			password: user.password 
-		})
+		return firebase.createUser({ email, password })
 		.then(result => {
 			console.log("Created new user: " + JSON.stringify(result));
 			return result.key;
 		});
 	}
 
-	login(user: User): Promise<firebase.User>
+	login(email: string, password: string): Promise<firebase.User>
 	{
-		console.log('Got user ' + JSON.stringify(user))
 		return firebase.login({ 
 			type: firebase.LoginType.PASSWORD,
-			email: user.email,
-			password: user.password
+			email,
+			password
 		})
 		.then(result => {
 			console.log("User login: " + JSON.stringify(result));

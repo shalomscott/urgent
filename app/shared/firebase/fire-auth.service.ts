@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import firebase = require("nativescript-plugin-firebase");
 
+import { User } from "./user";
+
 firebase.init()
 .then(instance =>
 {
@@ -14,18 +16,19 @@ firebase.init()
 @Injectable()
 export class FireAuth
 {
-	signUp(email: string, password: string)
+	signUp(user: User)
 	{
-		return firebase.createUser({ email, password })
+		return firebase.createUser({ email: user.email, password: user.password })
 		.then(result => console.log("Created new user:  " + JSON.stringify(result)));
 	}
 
-	login(email: string, password: string)
+	login(user: User)
 	{
+		console.log('Got user ' + JSON.stringify(user))
 		return firebase.login({ 
 			type: firebase.LoginType.PASSWORD,
-			email,
-			password
+			email: user.email,
+			password: user.password
 		})
 		.then(result => console.log("User login:  " + JSON.stringify(result)));
 	}

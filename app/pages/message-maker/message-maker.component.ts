@@ -11,7 +11,7 @@ export class MessageMakerComponent{
     message: Message;
 
     constructor(){
-        this.message = new Message("1", "", undefined, Status.PENDING, "");
+        this.message = new Message("1", "", undefined, Status.PENDING, ""); 
     }
     
     send(args) {

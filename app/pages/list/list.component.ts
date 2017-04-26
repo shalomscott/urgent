@@ -11,9 +11,9 @@ import {SetupItemViewArgs} from "nativescript-angular/directives";
 
 @Component({
   selector: "list",
-  templateUrl: "pages/list/list.html",
+  templateUrl: "pages/list/list.component.html",
   providers: [MessageListService],
-  styleUrls: ["pages/list/list-common.css", "pages/list/list.css"]
+  styleUrls: [ "pages/list/list.component.css"]
 })
 export class ListComponent implements OnInit {
   messageList: Array<Message> = [];
@@ -32,24 +32,24 @@ getStatusName(status) {
 
   ngOnInit() {
 
-    // this.messageListService.load().subscribe(loadedGroceries => {
-    //     loadedGroceries.forEach((messageObject) => {
+    // this.messageListService.load().subscribe(loadedMessages => {
+    //     loadedMessages.forEach((messageObject) => {
     //       this.messageList.unshift(messageObject);
     //     });
     //   });
 
-    var loadedGroceries = [
+    var loadedMessages = [
       new Message("1", "my name is itai", new Date(), Status.PENDING, "itai.schwed@gmail.com"),
       new Message("2", "my name is shalom", new Date(), Status.PENDING, "itai.schwed@gmail.com"),
       new Message("3", "my name is nick", new Date(), Status.PENDING, "itai.schwed@gmail.com")
     ];
     
-    loadedGroceries.forEach((messageObject) => {
+    loadedMessages.forEach((messageObject) => {
           this.messageList.unshift(messageObject);
     });
   }
 
   fabTap() {
-     this.router.navigate(["/message-maker"]);
+    //  this.router.navigate(["/message-maker"]);
   }
 }
